@@ -1,10 +1,11 @@
 <?php
 
-namespace FluxAutoloadApi\Adapter\Autoload;
+namespace FluxAutoloadApi\Adapter\Checker;
 
+use FluxAutoloadApi\Checker\Checker;
 use Symfony\Polyfill\Php80\Php80;
 
-class PhpVersionChecker
+class PhpVersionChecker implements Checker
 {
 
     private string $name;

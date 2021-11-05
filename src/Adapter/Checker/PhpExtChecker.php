@@ -1,8 +1,10 @@
 <?php
 
-namespace FluxAutoloadApi\Adapter\Autoload;
+namespace FluxAutoloadApi\Adapter\Checker;
 
-class PhpExtChecker
+use FluxAutoloadApi\Checker\Checker;
+
+class PhpExtChecker implements Checker
 {
 
     private array $ext;
@@ -24,7 +26,7 @@ class PhpExtChecker
     {
         foreach ($this->ext as $ext) {
             if (!extension_loaded($ext)) {
-                die(__NAMESPACE__ . " needs PHP ext " . $ext);
+                die($this->name . " needs PHP ext " . $ext);
             }
         }
     }

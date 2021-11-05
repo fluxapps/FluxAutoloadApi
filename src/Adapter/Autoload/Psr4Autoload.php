@@ -2,9 +2,10 @@
 
 namespace FluxAutoloadApi\Adapter\Autoload;
 
+use FluxAutoloadApi\Autoload\Autoload;
 use Symfony\Polyfill\Php80\Php80;
 
-class Psr4Autoload
+class Psr4Autoload implements Autoload
 {
 
     private array $map;
