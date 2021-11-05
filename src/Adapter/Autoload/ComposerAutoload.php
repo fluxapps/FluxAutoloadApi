@@ -2,6 +2,8 @@
 
 namespace FluxAutoloadApi\Adapter\Autoload;
 
+use FluxAutoloadApi\Adapter\Checker\PhpExtChecker;
+use FluxAutoloadApi\Adapter\Checker\PhpVersionChecker;
 use FluxAutoloadApi\Autoload\Autoload;
 use Symfony\Polyfill\Php80\Php80;
 
