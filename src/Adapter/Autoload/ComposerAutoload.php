@@ -2,9 +2,10 @@
 
 namespace FluxAutoloadApi\Adapter\Autoload;
 
+use FluxAutoloadApi\Autoload\Autoload;
 use Symfony\Polyfill\Php80\Php80;
 
-class ComposerAutoload
+class ComposerAutoload implements Autoload
 {
 
     private string $folder;
