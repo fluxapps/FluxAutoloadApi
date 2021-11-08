@@ -35,7 +35,9 @@ class Psr4Autoload implements Autoload
     {
         foreach ($this->map as $namespace => $folder) {
             if (/*str_starts_with*/ Php80::str_starts_with($class, $namespace . "\\")) {
-                require_once $folder . str_replace("\\", "/", substr($class, strlen($namespace))) . ".php";
+                if (file_exists($file = $folder . str_replace("\\", "/", substr($class, strlen($namespace))) . ".php")) {
+                    require_once $file;
+                }
                 break;
             }
         }

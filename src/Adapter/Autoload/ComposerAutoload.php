@@ -36,6 +36,14 @@ class ComposerAutoload implements Autoload
         }
 
         $composer = json_decode(file_get_contents($composer_json_file)) ?? (object) [];
+
+        $config = $composer->config ?? (object) [];
+        if (!empty($vendor_dir = $config->{"vendor-dir"} ?? null) && file_exists($autoload_php_file = $this->folder . "/" . $vendor_dir . "/autoload.php")) {
+            require_once $autoload_php_file;
+
+            return;
+        }
+
         $autoload = $composer->autoload ?? (object) [];
         $require = $composer->require ?? (object) [];
         $psr4 = $autoload->{"psr-4"} ?? (object) [];
@@ -58,12 +66,10 @@ class ComposerAutoload implements Autoload
         )
             ->autoload();
 
-        /*foreach ($autoload->classmap ?? [] as $classmap) {
-            // TODO:
-        }*/
-
         foreach ($autoload->files ?? [] as $file) {
-            require_once $this->folder . "/" . $file;
+            if (file_exists($autoload_php_file = $this->folder . "/" . $file)) {
+                require_once $autoload_php_file;
+            }
         }
     }
 }

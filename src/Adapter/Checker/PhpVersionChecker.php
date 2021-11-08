@@ -3,7 +3,6 @@
 namespace FluxAutoloadApi\Adapter\Checker;
 
 use FluxAutoloadApi\Checker\Checker;
-use Symfony\Polyfill\Php80\Php80;
 
 class PhpVersionChecker implements Checker
 {
@@ -28,8 +27,12 @@ class PhpVersionChecker implements Checker
         $php_version = $this->php_version;
         $operator = "";
 
-        while (Php80::str_starts_with($php_version, "<") || Php80::str_starts_with($php_version, "=") || Php80::str_starts_with($php_version, ">")) {
-            $operator .= substr($php_version, 0, 1);
+        while (in_array($php_version[0] ?? "", ["<", "=", ">", "^"])) {
+            $operator_ = substr($php_version, 0, 1);
+            if ($operator_ === "^") {
+                $operator_ = ">=";
+            }
+            $operator .= $operator_;
             $php_version = substr($php_version, 1);
         }
 
