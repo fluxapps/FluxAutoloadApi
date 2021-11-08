@@ -26,7 +26,10 @@ class ComposerAutoload implements Autoload
     public function autoload() : void
     {
         if (file_exists($autoload_php_file = $this->folder . "/vendor/autoload.php")) {
-            require_once $autoload_php_file;
+            RequireAutoload::new(
+                $autoload_php_file
+            )
+                ->autoload();
 
             return;
         }
@@ -39,7 +42,10 @@ class ComposerAutoload implements Autoload
 
         $config = $composer->config ?? (object) [];
         if (!empty($vendor_dir = $config->{"vendor-dir"} ?? null) && file_exists($autoload_php_file = $this->folder . "/" . $vendor_dir . "/autoload.php")) {
-            require_once $autoload_php_file;
+            RequireAutoload::new(
+                $autoload_php_file
+            )
+                ->autoload();
 
             return;
         }
@@ -67,9 +73,10 @@ class ComposerAutoload implements Autoload
             ->autoload();
 
         foreach ($autoload->files ?? [] as $file) {
-            if (file_exists($autoload_php_file = $this->folder . "/" . $file)) {
-                require_once $autoload_php_file;
-            }
+            RequireAutoload::new(
+                $this->folder . "/" . $file
+            )
+                ->autoload();
         }
     }
 }
