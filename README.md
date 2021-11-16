@@ -1,13 +1,13 @@
-# FluxAutoloadApi
+# flux-autoload-api
 
 Experimental Alpha Version
 
 ## Installation
 
 ```dockerfile
-COPY --from=docker-registry.fluxpublisher.ch/flux-autoload/api:latest /FluxAutoloadApi /%path%/libs/FluxAutoloadApi
+COPY --from=docker-registry.fluxpublisher.ch/flux-autoload/api:latest /flux-autoload-api /%path%/libs/flux-autoload-api
 ```
 
 ```php
-require_once __DIR__ . "/%path%/libs/FluxAutoloadApi/autoload.php";
+require_once __DIR__ . "/%path%/libs/flux-autoload-api/autoload.php";
 ```
