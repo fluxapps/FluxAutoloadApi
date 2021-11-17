@@ -4,7 +4,9 @@
     "alpha",
     "api",
     "autoload",
-    "experimental"
+    "experimental",
+    "library",
+    "php"
   ],
   "homepage": "https://github.com/fluxapps/flux-autoload-api"
 }
