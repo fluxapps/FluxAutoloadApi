@@ -4,7 +4,7 @@ namespace FluxAutoloadApi\Adapter\Autoload;
 
 use FluxAutoloadApi\Autoload\Autoload;
 
-class RequireAutoload implements Autoload
+class FileAutoload implements Autoload
 {
 
     private string $file;
