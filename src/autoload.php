@@ -20,19 +20,25 @@ Psr4Autoload::new(
     ->autoload();
 
 PhpVersionChecker::new(
-    ">=7.4",
-    __NAMESPACE__
+    ">=7.4"
 )
-    ->check();
+    ->checkAndDie(
+        __NAMESPACE__
+    );
 PhpExtChecker::new(
     [
         "json"
-    ],
-    __NAMESPACE__
+    ]
 )
-    ->check();
+    ->checkAndDie(
+        __NAMESPACE__
+    );
 
 ComposerAutoload::new(
     __DIR__ . "/../libs/polyfill-php80"
+)
+    ->autoload();
+ComposerAutoload::new(
+    __DIR__ . "/../libs/polyfill-php81"
 )
     ->autoload();
