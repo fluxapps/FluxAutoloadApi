@@ -7,22 +7,20 @@ use FluxAutoloadApi\Checker\Checker;
 class PhpVersionChecker implements Checker
 {
 
-    private string $name;
     private string $php_version;
 
 
-    public static function new(string $php_version, string $name) : /*static*/ self
+    public static function new(string $php_version) : /*static*/ self
     {
         $handler = new static();
 
         $handler->php_version = $php_version;
-        $handler->name = $name;
 
         return $handler;
     }
 
 
-    public function check() : void
+    public function check() : bool
     {
         $php_version = $this->php_version;
         $operator = "";
@@ -37,11 +35,17 @@ class PhpVersionChecker implements Checker
         }
 
         if (empty($php_version) || empty($operator)) {
-            return;
+            return false;
         }
 
-        if (!version_compare(PHP_VERSION, $php_version, $operator)) {
-            die($this->name . " needs at least PHP " . $this->php_version);
+        return version_compare(PHP_VERSION, $php_version, $operator);
+    }
+
+
+    public function checkAndDie(string $name) : void
+    {
+        if (!$this->check()) {
+            die($name . " needs at least PHP " . $this->php_version);
         }
     }
 }
