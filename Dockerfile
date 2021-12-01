@@ -1,9 +1,13 @@
 ARG COMPOSER_IMAGE=composer:latest
+ARG POLYFILL_PHP80_SOURCE_URL=https://github.com/symfony/polyfill-php80/archive/main.tar.gz
+ARG POLYFILL_PHP81_SOURCE_URL=https://github.com/symfony/polyfill-php81/archive/main.tar.gz
 
 FROM $COMPOSER_IMAGE AS build
+ARG POLYFILL_PHP80_SOURCE_URL
+ARG POLYFILL_PHP81_SOURCE_URL
 
-RUN (mkdir -p /flux-autoload-api/libs/polyfill-php80 && cd /flux-autoload-api/libs/polyfill-php80 && wget -O - https://github.com/symfony/polyfill-php80/archive/main.tar.gz | tar -xz --strip-components=1 && composer install --no-dev --ignore-platform-reqs)
-RUN (mkdir -p /flux-autoload-api/libs/polyfill-php81 && cd /flux-autoload-api/libs/polyfill-php81 && wget -O - https://github.com/symfony/polyfill-php81/archive/main.tar.gz | tar -xz --strip-components=1 && composer install --no-dev --ignore-platform-reqs)
+RUN (mkdir -p /flux-autoload-api/libs/polyfill-php80 && cd /flux-autoload-api/libs/polyfill-php80 && wget -O - $POLYFILL_PHP80_SOURCE_URL | tar -xz --strip-components=1 && composer install --no-dev --ignore-platform-reqs)
+RUN (mkdir -p /flux-autoload-api/libs/polyfill-php81 && cd /flux-autoload-api/libs/polyfill-php81 && wget -O - $POLYFILL_PHP81_SOURCE_URL | tar -xz --strip-components=1 && composer install --no-dev --ignore-platform-reqs)
 COPY . /flux-autoload-api
 
 FROM scratch
