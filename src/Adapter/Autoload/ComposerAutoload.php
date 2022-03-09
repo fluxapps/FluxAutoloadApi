@@ -15,13 +15,20 @@ class ComposerAutoload implements Autoload
     private string $folder;
 
 
-    public static function new(string $folder) : /*static*/ self
+    private function __construct(
+        /*private readonly*/ string $folder
+    ) {
+        $this->folder = $folder;
+    }
+
+
+    public static function new(
+        string $folder
+    ) : /*static*/ self
     {
-        $handler = new static();
-
-        $handler->folder = $folder;
-
-        return $handler;
+        return new static(
+            $folder
+        );
     }
 
 

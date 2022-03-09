@@ -10,13 +10,20 @@ class PhpVersionChecker implements Checker
     private string $php_version;
 
 
-    public static function new(string $php_version) : /*static*/ self
+    private function __construct(
+        /*private readonly*/ string $php_version
+    ) {
+        $this->php_version = $php_version;
+    }
+
+
+    public static function new(
+        string $php_version
+    ) : /*static*/ self
     {
-        $handler = new static();
-
-        $handler->php_version = $php_version;
-
-        return $handler;
+        return new static(
+            $php_version
+        );
     }
 
 

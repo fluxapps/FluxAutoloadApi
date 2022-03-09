@@ -10,13 +10,20 @@ class PhpExtChecker implements Checker
     private array $ext;
 
 
-    public static function new(array $ext) : /*static*/ self
+    private function __construct(
+        /*private readonly*/ array $ext
+    ) {
+        $this->ext = $ext;
+    }
+
+
+    public static function new(
+        array $ext
+    ) : /*static*/ self
     {
-        $handler = new static();
-
-        $handler->ext = $ext;
-
-        return $handler;
+        return new static(
+            $ext
+        );
     }
 
 
