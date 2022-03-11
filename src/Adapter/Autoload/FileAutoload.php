@@ -10,13 +10,20 @@ class FileAutoload implements Autoload
     private string $file;
 
 
-    public static function new(string $file) : /*static*/ self
+    private function __construct(
+        /*private readonly*/ string $file
+    ) {
+        $this->file = $file;
+    }
+
+
+    public static function new(
+        string $file
+    ) : /*static*/ self
     {
-        $handler = new static();
-
-        $handler->file = $file;
-
-        return $handler;
+        return new static(
+            $file
+        );
     }
 
 

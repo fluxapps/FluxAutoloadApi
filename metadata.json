@@ -1,12 +1,12 @@
 {
-  "description": "Autoload Api (Experimental Alpha Version)",
-  "topics": [
-    "alpha",
-    "api",
-    "autoload",
-    "experimental",
-    "library",
-    "php"
-  ],
-  "homepage": "https://github.com/fluxapps/flux-autoload-api"
+    "description": "Autoload Api (Experimental Alpha Version)",
+    "topics": [
+        "alpha",
+        "api",
+        "autoload",
+        "experimental",
+        "library",
+        "php"
+    ],
+    "homepage": "https://github.com/fluxapps/flux-autoload-api"
 }

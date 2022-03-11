@@ -11,13 +11,20 @@ class Psr4Autoload implements Autoload
     private array $map;
 
 
-    public static function new(array $map) : /*static*/ self
+    private function __construct(
+        /*private readonly*/ array $map
+    ) {
+        $this->map = $map;
+    }
+
+
+    public static function new(
+        array $map
+    ) : /*static*/ self
     {
-        $handler = new static();
-
-        $handler->map = $map;
-
-        return $handler;
+        return new static(
+            $map
+        );
     }
 
 
