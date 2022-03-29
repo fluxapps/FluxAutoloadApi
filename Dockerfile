@@ -12,7 +12,7 @@ COPY . /flux-autoload-api
 
 FROM scratch
 
-LABEL org.opencontainers.image.source="https://github.com/fluxapps/flux-autoload-api"
+LABEL org.opencontainers.image.source="https://github.com/flux-eco/flux-autoload-api"
 LABEL maintainer="fluxlabs <support@fluxlabs.ch> (https://fluxlabs.ch)"
 
 COPY --from=build /flux-autoload-api /flux-autoload-api
