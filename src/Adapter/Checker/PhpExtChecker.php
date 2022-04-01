@@ -7,9 +7,15 @@ use FluxAutoloadApi\Checker\Checker;
 class PhpExtChecker implements Checker
 {
 
+    /**
+     * @var string[]
+     */
     private array $ext;
 
 
+    /**
+     * @param string[] $ext
+     */
     private function __construct(
         /*private readonly*/ array $ext
     ) {
@@ -17,6 +23,9 @@ class PhpExtChecker implements Checker
     }
 
 
+    /**
+     * @param string[] $ext
+     */
     public static function new(
         array $ext
     ) : /*static*/ self
