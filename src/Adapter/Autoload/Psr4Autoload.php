@@ -8,9 +8,15 @@ use Symfony\Polyfill\Php80\Php80;
 class Psr4Autoload implements Autoload
 {
 
+    /**
+     * @var string[]
+     */
     private array $map;
 
 
+    /**
+     * @param string[] $map
+     */
     private function __construct(
         /*private readonly*/ array $map
     ) {
@@ -18,6 +24,9 @@ class Psr4Autoload implements Autoload
     }
 
 
+    /**
+     * @param string[] $map
+     */
     public static function new(
         array $map
     ) : /*static*/ self
