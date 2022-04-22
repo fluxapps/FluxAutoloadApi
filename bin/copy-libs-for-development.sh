@@ -8,9 +8,14 @@ if [ -z `command -v copy-from-docker-image` ]; then
 fi
 
 if [ -n "$CI_REGISTRY" ] && [ -n "$CI_PROJECT_NAMESPACE" ]; then
-    image="$CI_REGISTRY/$CI_PROJECT_NAMESPACE/flux-autoload-api:latest"
+    image="$CI_REGISTRY/$CI_PROJECT_NAMESPACE/flux-autoload-api"
 else
-    image="docker-registry.fluxpublisher.ch/flux-autoload/api:latest"
+    image="docker-registry.fluxpublisher.ch/flux-autoload/api"
 fi
 
-(cd "`dirname "$0"`/.." && copy-from-docker-image "$image" /flux-autoload-api/libs libs)
+tag="$1"
+if [ -z "$tag" ]; then
+    tag="latest"
+fi
+
+(cd "`dirname "$0"`/.." && copy-from-docker-image "$image:$tag" /flux-autoload-api/libs libs)
