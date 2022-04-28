@@ -53,6 +53,6 @@ flux-publish-utils:
     stage: repository
     image: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/flux-publish-utils:latest
     script:
-        - publish-utils $CI_PROJECT_NAME-build.tar.gz $CI_PROJECT_NAME-$DOCKER_TAG-build.tar.gz
+        - publish-utils
     only:
         - main
