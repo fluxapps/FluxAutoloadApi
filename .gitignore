@@ -1,4 +1,6 @@
 *
+!.github
+!.github/**
 !bin
 !bin/**
 !src
