@@ -19,8 +19,7 @@ class FileAutoload implements Autoload
 
     public static function new(
         string $file
-    ) : /*static*/ self
-    {
+    ) : static {
         return new static(
             $file
         );
