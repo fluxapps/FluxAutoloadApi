@@ -19,8 +19,7 @@ class PhpVersionChecker implements Checker
 
     public static function new(
         string $php_version
-    ) : /*static*/ self
-    {
+    ) : static {
         return new static(
             $php_version
         );

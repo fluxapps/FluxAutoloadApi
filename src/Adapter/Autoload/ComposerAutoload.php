@@ -24,8 +24,7 @@ class ComposerAutoload implements Autoload
 
     public static function new(
         string $folder
-    ) : /*static*/ self
-    {
+    ) : static {
         return new static(
             $folder
         );

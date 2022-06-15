@@ -29,8 +29,7 @@ class Psr4Autoload implements Autoload
      */
     public static function new(
         array $map
-    ) : /*static*/ self
-    {
+    ) : static {
         return new static(
             $map
         );

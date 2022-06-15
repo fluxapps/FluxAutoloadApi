@@ -28,8 +28,7 @@ class PhpExtChecker implements Checker
      */
     public static function new(
         array $ext
-    ) : /*static*/ self
-    {
+    ) : static {
         return new static(
             $ext
         );
