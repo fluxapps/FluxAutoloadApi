@@ -7,16 +7,13 @@ use FluxAutoloadApi\Checker\Checker;
 class PhpExtChecker implements Checker
 {
 
-    private readonly array $ext;
-
-
     /**
      * @param string[] $ext
      */
     private function __construct(
-        /*private readonly*/ array $ext
+        private readonly array $ext
     ) {
-        $this->ext = $ext;
+
     }
 
 
