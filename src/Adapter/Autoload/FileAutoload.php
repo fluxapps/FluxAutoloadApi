@@ -7,7 +7,7 @@ use FluxAutoloadApi\Autoload\Autoload;
 class FileAutoload implements Autoload
 {
 
-    private string $file;
+    private readonly string $file;
 
 
     private function __construct(

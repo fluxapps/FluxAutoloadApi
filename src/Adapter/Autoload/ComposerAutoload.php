@@ -12,7 +12,7 @@ use Symfony\Polyfill\Php80\Php80;
 class ComposerAutoload implements Autoload
 {
 
-    private string $folder;
+    private readonly string $folder;
 
 
     private function __construct(
