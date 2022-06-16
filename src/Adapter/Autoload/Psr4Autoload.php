@@ -8,16 +8,13 @@ use Symfony\Polyfill\Php80\Php80;
 class Psr4Autoload implements Autoload
 {
 
-    private readonly array $map;
-
-
     /**
      * @param string[] $map
      */
     private function __construct(
-        /*private readonly*/ array $map
+        private readonly array $map
     ) {
-        $this->map = $map;
+
     }
 
 
