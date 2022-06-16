@@ -10,7 +10,7 @@ class PhpExtChecker implements Checker
     /**
      * @var string[]
      */
-    private array $ext;
+    private readonly array $ext;
 
 
     /**

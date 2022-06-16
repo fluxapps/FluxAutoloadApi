@@ -11,7 +11,7 @@ class Psr4Autoload implements Autoload
     /**
      * @var string[]
      */
-    private array $map;
+    private readonly array $map;
 
 
     /**

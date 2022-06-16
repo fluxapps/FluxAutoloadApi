@@ -7,7 +7,7 @@ use FluxAutoloadApi\Checker\Checker;
 class PhpVersionChecker implements Checker
 {
 
-    private string $php_version;
+    private readonly string $php_version;
 
 
     private function __construct(
