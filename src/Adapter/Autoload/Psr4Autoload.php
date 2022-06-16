@@ -8,9 +8,6 @@ use Symfony\Polyfill\Php80\Php80;
 class Psr4Autoload implements Autoload
 {
 
-    /**
-     * @var string[]
-     */
     private readonly array $map;
 
 

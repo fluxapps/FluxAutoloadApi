@@ -7,9 +7,6 @@ use FluxAutoloadApi\Checker\Checker;
 class PhpExtChecker implements Checker
 {
 
-    /**
-     * @var string[]
-     */
     private readonly array $ext;
 
 
