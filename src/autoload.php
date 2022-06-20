@@ -3,7 +3,6 @@
 namespace FluxAutoloadApi;
 
 require_once __DIR__ . "/Autoload/Autoload.php";
-require_once __DIR__ . "/Adapter/Autoload/FileAutoload.php";
 require_once __DIR__ . "/Adapter/Autoload/Psr4Autoload.php";
 
 use FluxAutoloadApi\Adapter\Autoload\Psr4Autoload;
