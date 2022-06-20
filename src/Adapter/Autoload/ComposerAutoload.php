@@ -7,7 +7,6 @@ use FluxAutoloadApi\Adapter\Checker\PhpVersionChecker;
 use FluxAutoloadApi\Autoload\Autoload;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
-use Symfony\Polyfill\Php80\Php80;
 
 class ComposerAutoload implements Autoload
 {
@@ -68,7 +67,7 @@ class ComposerAutoload implements Autoload
 
         PhpExtChecker::new(
             array_map(fn(string $require) : string => substr($require, 4),
-                array_filter(array_keys((array) $require), fn(string $require) : bool => /*str_starts_with*/ Php80::str_starts_with($require, "ext-")))
+                array_filter(array_keys((array) $require), fn(string $require) : bool => str_starts_with($require, "ext-")))
         )
             ->checkAndDie(
                 $this->folder
@@ -96,7 +95,7 @@ class ComposerAutoload implements Autoload
                         continue;
                     }
 
-                    if (!/*str_ends_with*/Php80::str_ends_with($file->getPathName(), ".php")) {
+                    if (!str_ends_with($file->getPathName(), ".php")) {
                         continue;
                     }
 

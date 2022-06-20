@@ -3,7 +3,6 @@
 namespace FluxAutoloadApi\Adapter\Autoload;
 
 use FluxAutoloadApi\Autoload\Autoload;
-use Symfony\Polyfill\Php80\Php80;
 
 class Psr4Autoload implements Autoload
 {
@@ -43,7 +42,7 @@ class Psr4Autoload implements Autoload
     private function autoloadClass(string $class) : void
     {
         foreach ($this->map as $namespace => $folder) {
-            if (/*str_starts_with*/ Php80::str_starts_with($class, $namespace . "\\")) {
+            if (str_starts_with($class, $namespace . "\\")) {
                 FileAutoload::new(
                     $folder . str_replace("\\", "/", substr($class, strlen($namespace))) . ".php"
                 )
