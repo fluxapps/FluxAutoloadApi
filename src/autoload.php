@@ -27,7 +27,7 @@ Psr4Autoload::new(
     ->autoload();
 
 PhpVersionChecker::new(
-    ">=7.4"
+    ">=8.1"
 )
     ->checkAndDie(
         __NAMESPACE__
