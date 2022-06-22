@@ -36,7 +36,7 @@ require_once __DIR__ . "/%path%/libs/flux-autoload-api/autoload.php";
         {
             "type": "package",
             "package": {
-                "name": "flux/autoload-api",
+                "name": "flux/flux-autoload-api",
                 "version": "%tag%",
                 "dist": {
                     "url": "https://docker-registry.fluxpublisher.ch/api/get-build-archive/flux-autoload/api.tar.gz?tag=%tag%",
@@ -51,7 +51,7 @@ require_once __DIR__ . "/%path%/libs/flux-autoload-api/autoload.php";
         }
     ],
     "require": {
-        "flux/autoload-api": "*"
+        "flux/flux-autoload-api": "*"
     }
 }
 ```
