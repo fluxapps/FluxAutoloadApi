@@ -4,6 +4,8 @@ PHP Autoload Api
 
 ## Installation
 
+Hint: Use `latest` as `%tag%` (or omit it) for get the latest build
+
 ### Non-Composer
 
 ```dockerfile
