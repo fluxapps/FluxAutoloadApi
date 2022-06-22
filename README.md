@@ -6,8 +6,6 @@ PHP Autoload Api
 
 ### Non-Composer
 
-#### In docker
-
 ```dockerfile
 COPY --from=docker-registry.fluxpublisher.ch/flux-autoload/api:%tag% /flux-autoload-api /%path%/libs/flux-autoload-api
 ```
@@ -18,11 +16,11 @@ or
 RUN (mkdir -p /%path%/libs/flux-autoload-api && cd /%path%/libs/flux-autoload-api && wget -O - https://docker-registry.fluxpublisher.ch/api/get-build-archive/flux-autoload/api.tar.gz?tag=%tag% | tar -xz --strip-components=1)
 ```
 
-#### Other
+or
 
-Download https://docker-registry.fluxpublisher.ch/api/get-build-archive/flux-autoload/api.tar.gz?tag=%tag% and extract it to /%path%/libs/flux-autoload-api
+Download https://docker-registry.fluxpublisher.ch/api/get-build-archive/flux-autoload/api.tar.gz?tag=%tag% and extract it to `/%path%/libs/flux-autoload-api`
 
-Use `--content-disposition` with `wget` to get the correct file name
+Hint: If you use `wget` use `--content-disposition` to get the correct file name
 
 #### Usage
 
