@@ -5,6 +5,7 @@
 Changes:
 
 - Release versions
+- Usage with composer
 
 Get build:
 
