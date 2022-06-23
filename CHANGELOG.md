@@ -1,5 +1,16 @@
 # Changelog
 
+## latest
+
+Changes:
+
+- Remove create-gitlab-artifact-from-build
+
+Get build:
+
+- Docker image: `docker-registry.fluxpublisher.ch/flux-autoload/api:latest`
+- Archive: https://docker-registry.fluxpublisher.ch/api/get-build-archive/flux-autoload/api.tar.gz?tag=latest
+
 ## v2022-06-22-1
 
 Changes:
