@@ -7,12 +7,6 @@ PHP Autoload Api
 ### Non-Composer
 
 ```dockerfile
-COPY --from=docker-registry.fluxpublisher.ch/flux-autoload-api:%tag% /flux-autoload-api /%path%/libs/flux-autoload-api
-```
-
-or
-
-```dockerfile
 RUN (mkdir -p /%path%/libs/flux-autoload-api && cd /%path%/libs/flux-autoload-api && wget -O - https://github.com/flux-eco/flux-autoload-api/releases/download/%tag%/flux-autoload-api-%tag%-build.tar.gz | tar -xz --strip-components=1)
 ```
 
