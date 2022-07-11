@@ -4,7 +4,9 @@ PHP Autoload Api
 
 ## Installation
 
-### Non-Composer
+### Native
+
+#### Download
 
 ```dockerfile
 RUN (mkdir -p /%path%/libs/flux-autoload-api && cd /%path%/libs/flux-autoload-api && wget -O - https://github.com/flux-eco/flux-autoload-api/releases/download/%tag%/flux-autoload-api-%tag%-build.tar.gz | tar -xz --strip-components=1)
@@ -14,7 +16,7 @@ or
 
 Download https://github.com/flux-eco/flux-autoload-api/releases/download/%tag%/flux-autoload-api-%tag%-build.tar.gz and extract it to `/%path%/libs/flux-autoload-api`
 
-#### Usage
+#### Load
 
 ```php
 require_once __DIR__ . "/%path%/libs/flux-autoload-api/autoload.php";
